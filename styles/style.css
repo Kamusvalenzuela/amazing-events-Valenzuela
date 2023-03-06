@@ -22,7 +22,7 @@ nav {
 }
 
 .card img {
-    max-height: 8rem;
+    max-height: 12rem;
     max-width: 20rem;
     
 }
@@ -84,8 +84,8 @@ textarea {
 }
 
 .card {
-    max-width: 20rem;
-    height: 20rem;
+    max-width: 25rem;
+    height: 25rem;
     
 }
 
