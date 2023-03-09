@@ -1,17 +1,13 @@
-
-const currentDate = data.currentDate;
-const dataEvents = data.events;
-const info = dataEvents
+//Carga de variables
+const info = datos
 const containerDescription = document.getElementById("container-details")
 const containerImage = document.getElementById("image-details")
 const queryString = location.search
 const params = new URLSearchParams(queryString).get("id")
 const idNumber = parseInt(params) 
+const events = datos.find(item => item._id === idNumber)
 
-
-const events = dataEvents.find(item => item._id === idNumber)
-
-
+//Contenedor de descripciones + carga de datos dinámicos
 containerDescription.innerHTML = `
             <h1>${events.name}</h1>
             <p>${events.category}</p>
@@ -22,9 +18,11 @@ containerDescription.innerHTML = `
     `
 
 
-
+//Contenedor de imágen + carga de imágen dinámica
 containerImage.innerHTML = `
             <div class="d-flex w-100 h-100" >
                 <img class="" src="${events.image}" alt="this an image of ${events.name}"/>      
             </div>
     `
+
+

@@ -10,7 +10,6 @@ html {
 
 body {
     min-height: 100vh;
-    background: #eadeda;
 }
 
 header h1 {
@@ -22,28 +21,11 @@ nav {
 }
 
 .card img {
-    max-height: 12rem;
+    max-height: 8rem;
     max-width: 20rem;
     
 }
 
-.flexmain{
-    background: #eadeda;
-    display: inline-flex;
-    align-content: center;
-    justify-content: center;
-}
-.articleflex{
-    align-content: flex-end;
-    /* border: 1px solid orange; */
-    width: 40rem;
-    height: 20rem;
-}
-.pictureflex{
-    /* padding-left: 36rem; */
-    padding: 25px 25px;
-    justify-content: center;
-}
 select {
     background-color: #2e294e !important;
     color: #eadeda !important;
@@ -84,8 +66,8 @@ textarea {
 }
 
 .card {
-    max-width: 25rem;
-    height: 25rem;
+    max-width: 20rem;
+    height: 20rem;
     
 }
 
@@ -209,13 +191,7 @@ footer {
 .btn:hover {
     color: #eadeda;
 }
-.card{
-    margin: 15px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    position: static;
-}
+
 .color-title .card {
     background-color: #eadeda;
     border-radius: 1rem;
@@ -257,11 +233,11 @@ footer {
 }
 
 
-@media screen and (max-width:767px) {
+/* @media screen and (max-width:767px) {
     .category-none {
         display: none;
     }
-}
+} */
 
 .container-details {
     gap: .5rem !important;
@@ -271,9 +247,4 @@ footer {
 
 .category-style {
     font-size: 2rem !important;
-}
-
-.d-flex{
-    display: flex;
-    justify-content: center;
 }
