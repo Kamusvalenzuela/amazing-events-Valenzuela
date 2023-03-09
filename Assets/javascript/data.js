@@ -1,6 +1,4 @@
-let data = {
-  "currentDate": "2022-09-01",
-  "events": [
+const datos = [
     {
       "_id": 1,
       "name": "Collectivities Party",
@@ -444,5 +442,4 @@ let data = {
       "price": 8,
       "capacity": 1200,
       "estimate": 1200
-  }]
-}
+  }] 
