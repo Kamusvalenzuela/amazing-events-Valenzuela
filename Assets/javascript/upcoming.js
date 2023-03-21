@@ -1,137 +1,151 @@
-let $upcomingCard = document.getElementById("upcomming-card")
-let $containerCategory = document.getElementById("category-container")
-let $containerCategorySelect = document.getElementById("index-category-select")
-let $searchUpComing = document.getElementById("search-up-coming")
-let events = datos.map(event => event)
-let categoriesOnly = new Set(datos.map(category => category.category))
+//Carga de API
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
 
-function createCards(event){
-    let card = document.createElement("div")
-    card.classList.add('card', 'mb-3', 'mb-md-0')
-    card.innerHTML = `
-    <img src="${event.image}" class="card-img-top" alt="this is an ${event.name}">
-    <div class="card-body d-flex flex-column gap-3">
-            <div class="d-flex flex-column align-items-center text-card">
-            <h5 class="card-title d-flex text-align-center">${event.name}</h5>
-                <p class="card-text">${event.description}</p>
-                </div>
-                <div class="d-flex flex-row justify-content-between">
-                <div class="d-flex flex-row gap-1">
-                <h5>Price: </h5>
-                <p>$${event.price}</p>
-                </div>
-                <div>
-                <a href="./details.html?id=${event._id}" class="btn">View More</a>
-                </div>
-                </div>
-        </div>
-    `
-    return card
-    
+//Re-escritura de código guiado por compañeros debido a múltiples errores con mi metodología
+//de separar la búsqueda de fechas en desde past y upcoming events
+
+//Creación de plantillas y cartas en formato de texto
+function createCards(dataArray) {
+    let cardString = ``;
+        for (let event of dataArray) {
+            cardString += `<div class="card">
+    <img src="${event.image}">
+    <h3>${event.name}</h3>
+    <p class="desc">${event.description}</p>
+    <div class="card-foot">
+        <p>Price: $${event.price}.-</p>
+        <a href="./details.html?id=${event._id}">Details</a>
+    </div>
+</div>`
+    }
+return cardString;
 }
 
-function printCard(events, container){
-    container.innerHTML = ''
-    let $fragmentUpEvents = document.createDocumentFragment()
-    let filtradosEvents = events.filter(event => event.date > "2022-09-01")
-    filtradosEvents.forEach(event => $fragmentUpEvents.appendChild(createCards(event)))
-
-    container.appendChild($fragmentUpEvents)
-
-}
-
-printCard(datos, $upcomingCard)
-
-
-function createCategory(category, container){
-    let template = '' 
-    category.forEach(categories => {
-        template += `
-        <div class="d-flex padding-left">
-            <input class="form-check-input" type="checkbox" value="${categories}" checked id="${categories}">
-            <label class="form-check-label" for="${categories}">
-                ${categories}
-            </label>
-        </div>     
-        `
+//Creación del array de categorías a cargar
+function filterArrayCat(dataArray){
+    let aECategoriesArray = [];
+    dataArray.forEach(event => {
+        if (!aECategoriesArray.includes(event.category)) {
+        aECategoriesArray.push(event.category)
+        }
     })
-    container.innerHTML = template
+    return aECategoriesArray.sort();
 }
 
-createCategory(categoriesOnly, $containerCategory )
-
-
-let filterEventsGlobal = []
-
-$containerCategory.addEventListener("change", (event => {
-    let checked =Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(valor => valor.value)
-    let filterEvents = filterCards(events, checked)
-    filterEvents.length !== 0
-    ?   printCard(filterEvents, $upcomingCard)
-    :   $upcomingCard.innerHTML = `<h2>Select a category</h2>` 
-    filterEventsGlobal = filterEvents.map(e => e)
-}))
-
-function filterCards(events, condition) {
-    let filter = events.filter(event => condition.includes(event.category))
-    return filter
+//Creación de checkboxes que pasa por el array de categorías filtradas
+function createCategoriesCheckBox(categoriesArray){
+    let categoriesString = "";
+    for (const category of categoriesArray){
+        categoriesString += `
+    <div>
+        <input type="checkbox" name="category" id="${category.toLowerCase()}" value="${category.toLowerCase()}">
+        <label for="${category.toLowerCase()}">${category}</label>
+    </div> `
+    }
+    return categoriesString;
 }
 
-function filterText(array, text){
-    if (text === "") {
-        return array
-    } else {
-        return array.filter(element => element.name.toLowerCase().includes(text))
+//Creación de cards por elementos encontrados:
+function createFoundedCards(foundedDataArray){
+    let cardString = ``;
+    if (foundedDataArray.length > 0) {
+        for (let event of foundedDataArray) {
+            cardString += `<div class="card">
+    <img src="${event.image}">
+    <h3>${event.name}</h3>
+    <p>Description: ${event.description} </p>
+    <div class="card-foot">
+        <p>Price: ${event.price}</p>
+        <a href="./details.html?id=${event._id}">Details</a>
+    </div>
+</div>`
     }
 }
-
-$searchUpComing.addEventListener("keyup", e => {
-    const valorInput = Array.from(document.querySelectorAll('input[type="search"]')).map(element => element.value)
-    const cadenaInput = valorInput.toString().toLowerCase()
-    filterEventsGlobal = valorEventGlobal()
-    const cardsFilter = filterSearch(filterEventsGlobal, cadenaInput)
-    printCard(cardsFilter, $upcomingCard)  
-})
-
-function filterSearch(events, valorInput) {
-    let filter = events.filter(e => e.name.toLowerCase().includes(valorInput)) 
-    return filter
+else {
+    cardString += `
+    <img class="notFound" src="https://cdn.discordapp.com/attachments/1066019385652822147/1083253573632147516/AmazingNotFound.png" alt="Not found" width="300px" height="300px">
+    <p>ERROR 404. Search not founded, try again with other filters!</p>`
+}
+    return cardString;
 }
 
-function printCategorySlct(category, where) {
-    let template = `
-    <option selected>Select Category</option>
-    `
-    category.forEach( element => {
-        template += `
-            <option value="">${element}</option>      
-        `
-    })
-    where.innerHTML = template
-}
+//Captura de elementos HTML
+//Donde poner las cards:
+const box = document.getElementById("box");
+//Donde poner las cat:
+const form = document.querySelector(".category");
 
-printCategorySlct(categoriesOnly, $containerCategorySelect)
+//Fetch a la API
+fetch(urlApi)
+    .then(response => response.json())
+    .then(data => {
+//Filtra cards por fecha:
+let futureEvents = data.events.filter((event) => event.date >= data.currentDate);
+//Crea las cards y las mete en el elemento HTML:
+box.innerHTML = createCards(futureEvents);
+//Crea las categorías y las mete en el elemento HTML:
+form.innerHTML = createCategoriesCheckBox(filterArrayCat(data.events));
 
+//Búsqueda
+const searchBar = document.getElementById("search-bar")
+let searchBarEvents = [];
+let checkedCats = [];
+let searchCheckedEvents = [];
+let bufferEvents = [];
 
-$containerCategorySelect.addEventListener("change", e => {
-    let select = Array.from(document.querySelectorAll('option')).filter(elemento => elemento.selected).map(element => element.textContent)
-    let filterCategory = filterCategoriesSelect(events, select)
-    select.includes("Select Category")
-    ? printCard(events, $upcomingCard)
-    : printCard(filterCategory, $upcomingCard)
-    
-})
-
-
-function filterCategoriesSelect(category, condition){
-    const filter = category.filter(categories => condition.includes(categories.category))
-    return filter
-}
-
-
-function valorEventGlobal(){
-    if (filterEventsGlobal.length === 0) {
-        return datos
+//Verificación de entrada
+searchBar.addEventListener("keyup", () => {
+    if (checkedCats.length == 0) {
+        searchBarEvents = futureEvents.filter((evento) =>
+        evento.name.toLowerCase().includes(searchBar.value.toLowerCase()))
     }
-    return filterEventsGlobal
-}
+    else {
+        searchBarEvents = bufferEvents.filter((evento) =>
+            evento.name.toLowerCase().includes(searchBar.value.toLowerCase()))
+        }
+    box.innerHTML = createFoundedCards(searchBarEvents);
+})
+
+ //Los checkboxes
+form.addEventListener("click", (e) => {//ok
+    if (e.target.checked != undefined) {
+        if (e.target.checked) {
+            checkedCats.push(e.target.value)
+        }
+        else {
+            let index = checkedCats.indexOf(e.target.value)
+            if (index != -1) {
+                checkedCats.splice(index, 1)
+            }
+        }
+    }
+    let checkedEvents = [];
+    for (let cat of checkedCats) {
+        for (let event of futureEvents) {
+            if (event.category.toLowerCase().includes(cat)) {
+                checkedEvents.push(event);
+            }
+        }
+    }
+    if (searchBar.value == 0) {
+        box.innerHTML = createFoundedCards(checkedEvents);
+    }
+    else {
+        searchCheckedEvents = checkedEvents.filter((evento) =>
+            evento.name.toLowerCase().includes(searchBar.value.toLowerCase()))
+            box.innerHTML = createFoundedCards(searchCheckedEvents);
+    }
+    bufferEvents = checkedEvents.map((evento) => evento);
+    if (checkedCats.length === 0 && searchBar.value == 0) {
+        box.innerHTML = createCards(futureEvents);
+    }
+    else if (checkedCats.length === 0 && searchBar.value != 0) {
+        searchBarEvents = futureEvents.filter((evento) =>
+                evento.name.toLowerCase().includes(searchBar.value.toLowerCase()))
+                box.innerHTML = createFoundedCards(searchBarEvents);
+    }
+})
+})
+.catch(error => {
+    console.log(`Mi error: ${error}`);
+})

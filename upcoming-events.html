@@ -45,38 +45,22 @@
   <header class="d-flex justify-content-center align-items-center width-header color-title">
     <h1>Upcoming Events</h1>
   </header>
-  <main class="d-flex flex-column gap-5 color-title">
-    <div
-      class="section-nav d-flex flex-column flex-md-row justify-content-center align-items-center justify-content-md-around">
-      <div class="d-lg-none">
-        <select id="index-category-select" class="" aria-label="">
-
-        </select>
+  <main>
+    <div class="top-form">
+      <div class="category">
 
       </div>
-      <div id="category-container" class="form-check d-none d-lg-flex gap-2 col-7 padding-left-container">
-
-      </div>
-      <div class="">
-        <nav class="navbar navbar-light margin-right-nav nav-searcView More nav-search">
-          <div class="container-fluid">
-            <form class="d-flex">
-              <input id="search-up-coming" class="form-control me-2" type="search" placeholder="Search"
-                aria-label="Search">
-              <i class="fa-solid fa-magnifying-glass d-flex align-items-center"></i>
-            </form>
-          </div>
-        </nav>
+      <div class="search">
+          <label for="search-bar">
+              <input type="text" name="search-bar" id="search-bar">
+              <button type="submit" title="search"><i class="bi bi-search">🔍</i></button>
+          </label>
       </div>
     </div>
-    <div
-      class="section-cards d-flex flex-sm-column flex-md-column flex-lg-row w-100 align-items-center  section-cards-height">
-      <div id="upcomming-card"
-        class="container-cards  d-flex flex-md-wrap flex-sm-column flex-md-row flex-lg-row justify-content-center align-items-center justify-content-md-around w-100 gap-3 ">
+    <div id="box">
 
-      </div>
     </div>
-  </main>
+</main>
   <!-- Made by Franco Valenzuela for MindHub -->
   <footer
     class="w-100 width-footer d-flex flex-column flex-md-row justify-content-center align-items-center gap-5 justify-content-md-between align-items-md-center color-nav">
@@ -106,7 +90,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/21ebc2274f.js" crossorigin="anonymous"></script>
-  <script src="./Assets/javascript/data.js"></script>
   <script src="./Assets/javascript/upcoming.js"></script>
 </body>
 
