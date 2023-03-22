@@ -1,0 +1,450 @@
+/* Regla general */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Html general */
+
+/* LINEA COMENTADA POR LIMITAR CARDS */
+/* html {
+    font-size: 62.5%;
+} */
+
+nav {
+    min-height: 10vh;
+    padding: 0rem !important;
+}
+
+header {
+    min-height: 10vh;
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+main {
+    min-height: 60vh;
+}
+body {
+    min-height: 100vh;
+    background: #eadeda;
+}
+
+/* Form */
+.top-form {
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #eadeda;
+}
+
+/* Categoría */
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0.5rem;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #8b0243;
+}
+
+/* barra de búsqueda */
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search button {
+    background-color: #2e294e;
+    padding: 0.1rem 0.1rem;
+    border: none;
+}
+.search button:hover {
+    background-color: #2e294e;
+    padding: 0.1rem 0.1rem;
+    border: none;
+    transform: translateY(-0.1rem);
+}
+.search input {
+    border-color: #2e294e;
+}
+
+.nav-search {
+    background-color: #eadeda;
+    color: #d90368;
+    border-radius: 1rem;
+}
+
+.nav-search:hover {
+    background-color: #2e294e;
+    transition: 1s;
+}
+
+.category input {
+    border: 2px inset #2e294e;
+    border-radius: 0;
+}
+
+/* Contenedor de cards */
+#box {
+    width: 100%;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 28rem;
+    padding: 1rem 1rem;
+    color: #8b0243;
+    text-align: center;
+    background-color: #eadeda;
+    border: 5px solid #2e294e;
+    border-radius: 15px;
+}
+
+/* Por algún motivo este Hover solo está afectando al de Index.html y no a las cards de past y upcoming events */
+.card:hover {
+    background: #eec6b9;
+    box-shadow: 0px 0px 10px 2px rgba(45, 1, 22, 0.5);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(45, 1, 22, 0.5);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(45, 1, 22, 0.5);
+    transform: translateY(-1.5rem);
+}
+
+.card>img {
+    border: 5px solid #2e294e;
+    width: 12rem;
+    height: 7rem;
+    object-fit: cover;
+}
+
+/* p.date {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+} */
+
+p.desc {
+    height: 76px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.card>h3 {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.card-foot {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+    font-size: 0.9rem;
+}
+
+.card-foot>a,
+.detail-list li>a {
+    text-decoration: none;
+    background-color: #2e294e;
+    padding: 0.5rem 1rem;
+    color: #eadeda;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.card-foot>p {
+    padding: 0.5rem;
+}
+
+.color-title .card {
+    background-color: #eadeda;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.color-title .card:hover {
+    transform: translateY(-1.5rem);
+}
+
+.footer-hover:hover {
+    transform: translateY(-0.7rem);
+}
+
+/* Hovers del select */
+select {
+    background-color: #2e294e !important;
+    color: #eadeda !important;
+    
+}
+
+select:hover {
+    transition: 1s;
+}
+
+
+.width-logo {
+    width: 15rem;
+}
+
+.padding-links {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.padding-left-container {
+    margin-left: 6rem !important;
+}
+
+.padding-left {
+    padding-left: 3rem;
+    gap: 1rem;
+}
+
+/* Botón de redes (le puse IG por bobo nomas) */
+.instagram {
+    width: 4rem;
+    border-radius: 0.5rem;
+    
+}
+
+
+.form-control{
+    width: 30rem;
+}
+
+.margin-right-nav {
+    margin-right: 5rem;
+}
+
+.table-column {
+    width: 30rem;
+}
+
+.table-stats, th, tr, td, caption {
+    caption-side: top;
+    border: 1px solid #000;
+}
+
+.table-stats caption {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Página details */
+.detail {
+    width: fit-content;
+    height: fit-content;
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #ccb3ab;
+    border: 3px solid #2e294e;
+    border-radius: 35px;
+}
+
+.detail li {
+    color: #2e294e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6rem;
+
+}
+
+.detail img {
+    max-width: 85%;
+    border: 5px solid #2e294e;
+    border-radius: 15px;
+    width: 20rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.detail-list {
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-list li>span {
+    font-weight: bold;
+}
+
+.detail-list li>a {
+    width: 8rem;
+    border-radius: 85px;
+    align-self: flex-end;
+    background: #d90368;
+}
+
+/* .image-details {
+    width: 40rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    border: #2e294e solid 1px;
+}
+
+.container-details {
+    width: 40rem;
+    border: #2e294e solid 1px;
+}
+
+.card-details {
+    width: 70rem;
+    height: 30rem;
+    padding: 2rem;
+    background-color: #eadeda;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+} */
+
+.main-details {
+    min-height: 70vh;
+}
+
+.color-nav {
+    background-color: #2e294e!important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.color-nav a {
+    color: #eadeda!important;
+    font-size: 1.2rem;
+}
+
+.active {
+    border: #000 solid 1px;
+    border-radius: 1rem;
+}
+
+.color-title h1, h5 {
+    background-color: #eadeda;
+    color: #d90368;
+}
+
+.color-title {
+    background-color: #eadeda;
+}
+
+.btn {
+    background-color: #2e294e;
+    color: #eadeda;
+}
+
+.btn:hover {
+    color: #eadeda;
+}
+
+.color-logo-footer {
+    background-color: #eadeda;
+    border-radius: 1rem;
+    margin-left: .5rem;
+}
+
+.color-cohort-footer {
+    color: #eadeda;
+}
+
+.color-cohort-footer h6 {
+    font-size: 2rem;
+}
+
+footer {
+    min-height: 20vh;
+}
+
+/* Design Responsive */
+
+/* @media screen and (max-width:767px) {
+    .category-none {
+        display: none;
+    }
+} */
+
+
+@media screen and (max-width:1110px) {
+    .detail {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:790px) {
+
+    header,
+    .top-form {
+        justify-content: center;
+    }
+    .contact {
+        width: 60%;
+    }
+    #box {
+        padding: 1rem;
+    }
+    .detail-list {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    header {
+        padding: 0;
+    }
+    header>nav {
+        gap: 0;
+        padding: 0;
+        background-color: #eadeda;
+    }
+    .contact {
+        width: 95%;
+    }
+    .detail {
+        padding: 1rem;
+    }
+    .title {
+        font-size: smaller;
+    }
+}
+.container-details {
+    gap: .5rem !important;
+}
+.category-style {
+    font-size: 2rem !important;
+}
