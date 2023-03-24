@@ -9,14 +9,14 @@ function createCards(dataArray) {
     let cardString = ``;
         for (let event of dataArray) {
             cardString += `<div class="card">
-    <img src="${event.image}">
-    <h3>${event.name}</h3>
-    <p class="desc">${event.description}</p>
-    <div class="card-foot">
-        <p>Price: $${event.price}.-</p>
-        <a href="./details.html?id=${event._id}">Details</a>
-    </div>
-    </div>`
+                <img src="${event.image}">
+                <h3>${event.name}</h3>
+                <p class="desc">${event.description}</p>
+                <div class="card-foot">
+                    <p>Price: $${event.price}.-</p>
+                    <a href="./details.html?id=${event._id}">Details</a>
+                </div>
+            </div>`
     }
     return cardString;
 }

@@ -117,9 +117,9 @@ let futureEvents = data.events.filter((event) => event.date >= data.currentDate)
         for(let i = 0; i < rowsToRender; i++){
             tInfoTop3 += `
             <tr>
-            <td> ${eventsOrderHigh[i].name}: ${eventsOrderHigh[i].percentageOfAtt} % </td>
-            <td> ${eventsOrderLow[i].name}: ${eventsOrderLow[i].percentageOfAtt} % </td>
-            <td> ${eventsOrderCapacity[i].name}: ${eventsOrderCapacity[i].capacity}  </td>
+                <td> ${eventsOrderHigh[i].name}: ${eventsOrderHigh[i].percentageOfAtt} % </td>
+                <td> ${eventsOrderLow[i].name}: ${eventsOrderLow[i].percentageOfAtt} % </td>
+                <td> ${eventsOrderCapacity[i].name}: ${eventsOrderCapacity[i].capacity}  </td>
             </tr>`
         }
         let tBodyHeaders2 = `
@@ -165,8 +165,10 @@ let futureEvents = data.events.filter((event) => event.date >= data.currentDate)
     let box = document.getElementById("box");
     box.innerHTML = tHead + tBodyHeaders1 + tInfoTop3 + tBodyHeaders2 + upcomigInfo + tBodyHeaders3 + pastInfo;
     })
-    .catch(error => {
-        console.log(`Mi error: ${error}`);
-    })
+
+
+.catch(error => {
+    console.log(`Mi error: ${error}`);
+})
 
     //No sé qué hago con mi vida

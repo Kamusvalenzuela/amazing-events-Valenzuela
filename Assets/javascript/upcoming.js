@@ -114,8 +114,8 @@ form.addEventListener("click", (e) => {//ok
         }
         else {
             let index = checkedCats.indexOf(e.target.value)
-            if (index != -1) {
-                checkedCats.splice(index, 1)
+                if (index != -1) {
+                    checkedCats.splice(index, 1)
             }
         }
     }
