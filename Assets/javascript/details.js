@@ -20,13 +20,13 @@ fetch(urlApi)
         <img src="${evento.image}" alt="This is an image of ${evento.name}">
 <div class="detail-list">
     <ul>
-    <li><span class="li-title">Name:</span> ${evento.name}.</li>
-    <li><span class="li-title">Category:</span> ${evento.category}.</li>
-    <li><span class="li-title">Date:</span> ${evento.date}.</li>
-    <li><span class="li-title">Description:</span> ${evento.description}.</li>
-    <li><span class="li-title">Place:</span> ${evento.place}.</li>
-    <li><span class="li-title">Price:</span> $ ${evento.price}.-</li>
-    <li><span class="li-title">Capacity:</span> ${evento.capacity}.</li>
+        <li><span class="li-title">Name:</span> ${evento.name}.</li>
+        <li><span class="li-title">Category:</span> ${evento.category}.</li>
+        <li><span class="li-title">Date:</span> ${evento.date}.</li>
+        <li><span class="li-title">Description:</span> ${evento.description}.</li>
+        <li><span class="li-title">Place:</span> ${evento.place}.</li>
+        <li><span class="li-title">Price:</span> $ ${evento.price}.-</li>
+        <li><span class="li-title">Capacity:</span> ${evento.capacity}.</li>
 `;
         const assistance = `<li><span class="li-title">Assistance:</span> ${evento.assistance}.</li>
 <li><a href="javascript:history.back()">Back</a></li>
